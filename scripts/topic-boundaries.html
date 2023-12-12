@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.269">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Helen Schmidt">
+
+<title>Topic Boundaries</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="topic-boundaries_files/libs/clipboard/clipboard.min.js"></script>
+<script src="topic-boundaries_files/libs/quarto-html/quarto.js"></script>
+<script src="topic-boundaries_files/libs/quarto-html/popper.min.js"></script>
+<script src="topic-boundaries_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="topic-boundaries_files/libs/quarto-html/anchor.min.js"></script>
+<link href="topic-boundaries_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="topic-boundaries_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="topic-boundaries_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="topic-boundaries_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="topic-boundaries_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#load-packages" id="toc-load-packages" class="nav-link active" data-scroll-target="#load-packages">Load packages</a></li>
+  <li><a href="#import-data" id="toc-import-data" class="nav-link" data-scroll-target="#import-data">Import data</a></li>
+  <li><a href="#format-topic-changes" id="toc-format-topic-changes" class="nav-link" data-scroll-target="#format-topic-changes">Format topic changes</a></li>
+  <li><a href="#topic-patterns" id="toc-topic-patterns" class="nav-link" data-scroll-target="#topic-patterns">Topic patterns</a></li>
+  <li><a href="#boundary-locations" id="toc-boundary-locations" class="nav-link" data-scroll-target="#boundary-locations">Boundary locations</a></li>
+  <li><a href="#topic-length" id="toc-topic-length" class="nav-link" data-scroll-target="#topic-length">Topic length</a></li>
+  <li><a href="#speakers-and-topic-changes" id="toc-speakers-and-topic-changes" class="nav-link" data-scroll-target="#speakers-and-topic-changes">Speakers and topic changes</a></li>
+  <li><a href="#takeaways" id="toc-takeaways" class="nav-link" data-scroll-target="#takeaways">Takeaways</a></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Topic Boundaries</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Helen Schmidt </p>
+          </div>
+  </div>
+    
+  
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">December 11, 2023</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+</header>
+
+<p>The goal of this document is to understand human-designated topic changes in a selection of CANDOR conversations and gather insights to create a standardized workflow for future annotations.</p>
+<section id="load-packages" class="level3">
+<h3 class="anchored" data-anchor-id="load-packages">Load packages</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)       <span class="co"># obviously</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(geomtextpath)    <span class="co"># create density curves with topic labels</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(GrpString)       <span class="co"># find patterns among groups of strings</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidytext)        <span class="co"># tokenization</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="import-data" class="level3">
+<h3 class="anchored" data-anchor-id="import-data">Import data</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#df &lt;- read.csv("/Volumes/GoogleDrive/My Drive/SANLab/Experiments/CANDOR/analysis/data/example.csv")</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"/Users/tuo70125/My Drive/SANLab/Experiments/CANDOR/analysis/data/example.csv"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  conversation coder turn_id                  speaker  start   stop
+1            1     1       0 5cf6231511ba980001e3aa3d   0.44  87.26
+2            1     1       1 5f49553539747213d0e5f1ae  88.04 103.86
+3            1     1       2 5cf6231511ba980001e3aa3d 104.24 109.36
+4            1     1       3 5f49553539747213d0e5f1ae 109.74 112.20
+5            1     1       4 5cf6231511ba980001e3aa3d 111.60 111.96
+6            1     1       5 5f49553539747213d0e5f1ae 112.21 112.74
+  topic_change topic_label
+1            1 zoom issues
+2           NA            
+3           NA            
+4           NA            
+5           NA            
+6           NA            </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># print some information about data</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">paste0</span>(<span class="st">"Number of unique human coders = "</span>, <span class="fu">length</span>(<span class="fu">unique</span>(df<span class="sc">$</span>coder)), <span class="at">sep =</span> <span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Number of unique human coders = 4"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste0</span>(<span class="st">"Number of conversations = "</span>, <span class="fu">length</span>(<span class="fu">unique</span>(df<span class="sc">$</span>conversation)), <span class="at">sep =</span> <span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Number of conversations = 3"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste0</span>(<span class="st">"Number of unique speakers = "</span>, <span class="fu">length</span>(<span class="fu">unique</span>(df<span class="sc">$</span>speaker)), <span class="at">sep =</span> <span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Number of unique speakers = 6"</code></pre>
+</div>
+</div>
+</section>
+<section id="format-topic-changes" class="level3">
+<h3 class="anchored" data-anchor-id="format-topic-changes">Format topic changes</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># make topic change 1 = change, 0 = no change</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>topic_change[<span class="fu">is.na</span>(df<span class="sc">$</span>topic_change)] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># make coder, conversation #, and speaker factor variables</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>coder <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(df<span class="sc">$</span>coder)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>speaker <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(df<span class="sc">$</span>speaker)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>conversation <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(df<span class="sc">$</span>conversation)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co"># populate topic names across turns until topic change</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>topic_label[df<span class="sc">$</span>topic_label <span class="sc">==</span> <span class="st">""</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(coder) <span class="sc">|&gt;</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fill</span>(topic_label, <span class="at">.direction =</span> <span class="st">"down"</span>)</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 8
+# Groups:   coder [1]
+  conversation coder turn_id speaker        start  stop topic_change topic_label
+  &lt;fct&gt;        &lt;fct&gt;   &lt;int&gt; &lt;fct&gt;          &lt;dbl&gt; &lt;dbl&gt;        &lt;dbl&gt; &lt;chr&gt;      
+1 1            1           0 5cf6231511ba…   0.44  87.3            1 zoom issues
+2 1            1           1 5f4955353974…  88.0  104.             0 zoom issues
+3 1            1           2 5cf6231511ba… 104.   109.             0 zoom issues
+4 1            1           3 5f4955353974… 110.   112.             0 zoom issues
+5 1            1           4 5cf6231511ba… 112.   112.             0 zoom issues
+6 1            1           5 5f4955353974… 112.   113.             0 zoom issues</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create separate df for change points</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>df.change <span class="ot">&lt;-</span> <span class="fu">subset</span>(df, topic_change <span class="sc">==</span> <span class="dv">1</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df.change)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 8
+# Groups:   coder [1]
+  conversation coder turn_id speaker        start  stop topic_change topic_label
+  &lt;fct&gt;        &lt;fct&gt;   &lt;int&gt; &lt;fct&gt;          &lt;dbl&gt; &lt;dbl&gt;        &lt;dbl&gt; &lt;chr&gt;      
+1 1            1           0 5cf6231511ba…   0.44  87.3            1 zoom issues
+2 1            1          12 5cf6231511ba… 121.   130.             1 Names      
+3 1            1          17 5f4955353974… 136.   141.             1 rules      
+4 1            1          18 5cf6231511ba… 141.   146.             1 questions …
+5 1            1          50 5cf6231511ba… 242.   244.             1 questions …
+6 1            1          51 5f4955353974… 245.   255.             1 med schho  </code></pre>
+</div>
+</div>
+</section>
+<section id="topic-patterns" class="level2">
+<h2 class="anchored" data-anchor-id="topic-patterns">Topic patterns</h2>
+<p>How many unique topic labels are created for each conversation across four annotators?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># convo 1</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(df<span class="sc">$</span>topic_label[<span class="sc">!</span><span class="fu">is.na</span>(df<span class="sc">$</span>topic_label) <span class="sc">&amp;</span> df<span class="sc">$</span>conversation <span class="sc">==</span> <span class="st">"1"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "zoom issues"                                             
+ [2] "Names"                                                   
+ [3] "rules"                                                   
+ [4] "questions abt quarantine"                                
+ [5] "questions abt lab work"                                  
+ [6] "med schho"                                               
+ [7] "price of education"                                      
+ [8] "networking/online"                                       
+ [9] "location"                                                
+[10] "national parks"                                          
+[11] "covid"                                                   
+[12] "volunteer"                                               
+[13] "takeaway "                                               
+[14] "trying to transition"                                    
+[15] "dating"                                                  
+[16] "money"                                                   
+[17] "conversation study"                                      
+[18] "studies/racism"                                          
+[19] "liberals vs conservatives "                              
+[20] "election"                                                
+[21] "time up"                                                 
+[22] "recap"                                                   
+[23] "Building Rapport"                                        
+[24] "Education"                                               
+[25] "Online Impact"                                           
+[26] "Location"                                                
+[27] "Travel"                                                  
+[28] "Exploring Volunteering"                                  
+[29] "Statistics"                                              
+[30] "Research"                                                
+[31] "Demand Characteristics"                                  
+[32] "Social Injustice"                                        
+[33] "Cultural Competence"                                     
+[34] "Racial Injustice"                                        
+[35] "Family"                                                  
+[36] "Political Research"                                      
+[37] "Political Election"                                      
+[38] "Closing Conversation"                                    
+[39] "Going from figuring out zoom to introductions"           
+[40] "Introductions to quarantine happenings"                  
+[41] "University related to location"                          
+[42] "Location/background to national parks"                   
+[43] "national parks to travel"                                
+[44] "travel to volunteering"                                  
+[45] "volunteer to research"                                   
+[46] "research to survey site they are using"                  
+[47] "surveys to university studies (again)"                   
+[48] "university to medical disarities (kind of similar topic)"
+[49] "medical disparities to BLM protests"                     
+[50] "BLM protests to racism"                                  
+[51] "racism to election"                                      
+[52] "election to wrap-up"                                     
+[53] "getting started"                                         
+[54] "work/volunteering"                                       
+[55] "networking online"                                       
+[56] "travel"                                                  
+[57] "volunteering"                                            
+[58] "research"                                                
+[59] "classes"                                                 
+[60] "racism"                                                  
+[61] "politics and family"                                     
+[62] "goodbyes "                                               </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># convo 2</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(df<span class="sc">$</span>topic_label[<span class="sc">!</span><span class="fu">is.na</span>(df<span class="sc">$</span>topic_label) <span class="sc">&amp;</span> df<span class="sc">$</span>conversation <span class="sc">==</span> <span class="st">"2"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "introduction"                                
+ [2] "name"                                        
+ [3] "location "                                   
+ [4] "puppy"                                       
+ [5] "age"                                         
+ [6] "school"                                      
+ [7] "internship"                                  
+ [8] "greek life"                                  
+ [9] "post-graduation"                             
+[10] "extracurriculars"                            
+[11] "study abroad"                                
+[12] "alcohol"                                     
+[13] "medschool"                                   
+[14] "outro"                                       
+[15] "Closing Conversation"                        
+[16] "Building Rapport"                            
+[17] "Location"                                    
+[18] "Dogs"                                        
+[19] "Age"                                         
+[20] "College"                                     
+[21] "College Major"                               
+[22] "Moving to College"                           
+[23] "Online Classes"                              
+[24] "College Culture"                             
+[25] "Semester Uncertainties"                      
+[26] "College Struggles"                           
+[27] "Career"                                      
+[28] "Extracurriculars"                            
+[29] "Rats"                                        
+[30] "Traveling Abroad"                            
+[31] "Drinking"                                    
+[32] "Class Difficulty "                           
+[33] "College Classes"                             
+[34] "Picking Colleges"                            
+[35] "Medical School"                              
+[36] "election to wrap-up"                         
+[37] "introduction to puppy"                       
+[38] "puppy to age/introductions (again)"          
+[39] "college"                                     
+[40] "to \"wall street life\"?"                    
+[41] "back to covid school"                        
+[42] "to looking for jobs"                         
+[43] "to clubs/outside interests"                  
+[44] "meeting friends in college"                  
+[45] "studying abroad"                             
+[46] "freshmen dorms/college attitude to drinking" 
+[47] "difficult of admission to/classes in college"
+[48] "career interests"                            
+[49] "sister's med school"                         
+[50] "wrap-up"                                     
+[51] "goodbyes "                                   
+[52] "greetings"                                   
+[53] "introductions/names"                         
+[54] "where they are from"                         
+[55] "dog"                                         
+[56] "covid/jobs"                                  
+[57] "school classes/clubs"                        
+[58] "gap years"                                   
+[59] "school difficulty "                          
+[60] "grad school"                                 
+[61] "goodbyes"                                    </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># convo 3</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(df<span class="sc">$</span>topic_label[<span class="sc">!</span><span class="fu">is.na</span>(df<span class="sc">$</span>topic_label) <span class="sc">&amp;</span> df<span class="sc">$</span>conversation <span class="sc">==</span> <span class="st">"3"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "intro"                              "what to do"                        
+ [3] "location"                           "covid"                             
+ [5] "college"                            "mental state"                      
+ [7] "hobbies"                            "animal crossing"                   
+ [9] "icebreaker questions"               "ice cream"                         
+[11] "travel"                             "fashion"                           
+[13] "music"                              "food"                              
+[15] "politics"                           "tv"                                
+[17] "drink"                              "fast food"                         
+[19] "vegetarian"                         "pets"                              
+[21] "morning vs night"                   "outro"                             
+[23] "Closing Conversation"               "Name"                              
+[25] "List of Questions"                  "Living Situation"                  
+[27] "COVID Cases"                        "College Majors"                    
+[29] "Mental Health"                      "Hobbies"                           
+[31] "Video Games"                        "Ice Cream"                         
+[33] "Traveling"                          "Fashion"                           
+[35] "Music"                              "Food"                              
+[37] "Political Views"                    "TV Shows"                          
+[39] "Beverages"                          "Taco Bell"                         
+[41] "Pets"                               "Sleep Schedule"                    
+[43] "wrap-up"                            "introductions to COVID impact "    
+[45] "occupation/college"                 "specific - summer classes"         
+[47] "view of self because of COVID"      "video games"                       
+[49] "ice cream flavor"                   "music taste"                       
+[51] "ariana grande"                      "personal politics vs area politics"
+[53] "tv shows"                           "drink preferences"                 
+[55] "vegetarian vs vegan vs pescatarian" "debate"                            
+[57] "back to hobbies (general)"          "morning or night preference"       
+[59] "wrapping up"                        "goodbyes"                          
+[61] "introductions"                      "task assigned/how to start convo"  
+[63] "where they are from"                "covid cases"                       
+[65] "occupations/college"                "boredom"                           
+[67] "games"                              "smoking"                           
+[69] "back to games"                      "new questions"                     
+[71] "style/fashion"                      "coffee and tea"                    
+[73] "taco bell menu/diets "              "tournaments/debates"               
+[75] "wiffle ball"                        "sleep habits"                      
+[77] "goodbyes "                         </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># https://journal.r-project.org/archive/2018/RJ-2018-002/RJ-2018-002.pdf</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co"># testing a string grouping package to see if I can identify larger themes among topic labels - QUANT</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co"># create vector of unique topic labels</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="co"># one vector for each conversation</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>labels1 <span class="ot">&lt;-</span> <span class="fu">unique</span>(df<span class="sc">$</span>topic_label[<span class="sc">!</span><span class="fu">is.na</span>(df<span class="sc">$</span>topic_label) <span class="sc">&amp;</span> df<span class="sc">$</span>conversation <span class="sc">==</span> <span class="st">"1"</span>])</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>labels2 <span class="ot">&lt;-</span> <span class="fu">unique</span>(df<span class="sc">$</span>topic_label[<span class="sc">!</span><span class="fu">is.na</span>(df<span class="sc">$</span>topic_label) <span class="sc">&amp;</span> df<span class="sc">$</span>conversation <span class="sc">==</span> <span class="st">"2"</span>])</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>labels3 <span class="ot">&lt;-</span> <span class="fu">unique</span>(df<span class="sc">$</span>topic_label[<span class="sc">!</span><span class="fu">is.na</span>(df<span class="sc">$</span>topic_label) <span class="sc">&amp;</span> df<span class="sc">$</span>conversation <span class="sc">==</span> <span class="st">"3"</span>])</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="co"># transition entropy (Shannon entropy formula)</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="co"># diversity of transitions in a group of strings; larger values reflect more evenly distributed transitions and smaller values relect more biased distribution of transitions</span></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a><span class="co"># overall transition entropy</span></span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a><span class="fu">TransEntro</span>(labels1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 7.313733</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">TransEntro</span>(labels2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 7.361817</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">TransEntro</span>(labels3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 7.633877</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># transition entropy for each string</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>entropy1 <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">TransEntropy</span>(labels1))</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>entropy2 <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">TransEntropy</span>(labels2))</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>entropy3 <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">TransEntropy</span>(labels3))</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="co"># add topic labels</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>entropy1<span class="sc">$</span>labels <span class="ot">&lt;-</span> labels1</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>entropy2<span class="sc">$</span>labels <span class="ot">&lt;-</span> labels2</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>entropy3<span class="sc">$</span>labels <span class="ot">&lt;-</span> labels3</span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a><span class="co"># print</span></span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>entropy1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   String  Entropy                                                   labels
+1       1 3.321928                                              zoom issues
+2       2 2.000000                                                    Names
+3       3 2.000000                                                    rules
+4       4 4.349649                                 questions abt quarantine
+5       5 4.297079                                   questions abt lab work
+6       6 3.000000                                                med schho
+7       7 4.087463                                       price of education
+8       8 3.750000                                        networking/online
+9       9 2.807355                                                 location
+10     10 3.546594                                           national parks
+11     11 2.000000                                                    covid
+12     12 3.000000                                                volunteer
+13     13 3.000000                                                takeaway 
+14     14 4.037401                                     trying to transition
+15     15 2.321928                                                   dating
+16     16 2.000000                                                    money
+17     17 3.969816                                       conversation study
+18     18 3.700440                                           studies/racism
+19     19 4.373661                               liberals vs conservatives 
+20     20 2.807355                                                 election
+21     21 2.584963                                                  time up
+22     22 2.000000                                                    recap
+23     23 3.906891                                         Building Rapport
+24     24 3.000000                                                Education
+25     25 3.584963                                            Online Impact
+26     26 2.807355                                                 Location
+27     27 2.321928                                                   Travel
+28     28 4.106603                                   Exploring Volunteering
+29     29 2.947703                                               Statistics
+30     30 2.807355                                                 Research
+31     31 4.392317                                   Demand Characteristics
+32     32 3.906891                                         Social Injustice
+33     33 4.169925                                      Cultural Competence
+34     34 3.906891                                         Racial Injustice
+35     35 2.321928                                                   Family
+36     36 4.087463                                       Political Research
+37     37 3.969816                                       Political Election
+38     38 4.142664                                     Closing Conversation
+39     39 5.078639            Going from figuring out zoom to introductions
+40     40 5.047291                   Introductions to quarantine happenings
+41     41 4.789015                           University related to location
+42     42 4.892147                    Location/background to national parks
+43     43 4.349649                                 national parks to travel
+44     44 4.392317                                   travel to volunteering
+45     45 4.321928                                    volunteer to research
+46     46 4.777021                   research to survey site they are using
+47     47 5.058814                    surveys to university studies (again)
+48     48 5.526814 university to medical disarities (kind of similar topic)
+49     49 4.969816                      medical disparities to BLM protests
+50     50 4.392317                                   BLM protests to racism
+51     51 4.087463                                       racism to election
+52     52 4.169925                                      election to wrap-up
+53     53 3.807355                                          getting started
+54     54 4.000000                                        work/volunteering
+55     55 3.750000                                        networking online
+56     56 2.321928                                                   travel
+57     57 3.459432                                             volunteering
+58     58 2.807355                                                 research
+59     59 2.584963                                                  classes
+60     60 2.321928                                                   racism
+61     61 4.169925                                      politics and family
+62     62 3.000000                                                goodbyes </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>entropy2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   String  Entropy                                       labels
+1       1 3.459432                                 introduction
+2       2 1.584963                                         name
+3       3 3.000000                                    location 
+4       4 2.000000                                        puppy
+5       5 1.000000                                          age
+6       6 2.321928                                       school
+7       7 3.169925                                   internship
+8       8 3.169925                                   greek life
+9       9 3.807355                              post-graduation
+10     10 3.773557                             extracurriculars
+11     11 3.459432                                 study abroad
+12     12 2.584963                                      alcohol
+13     13 3.000000                                    medschool
+14     14 2.000000                                        outro
+15     15 4.142664                         Closing Conversation
+16     16 3.906891                             Building Rapport
+17     17 2.807355                                     Location
+18     18 1.584963                                         Dogs
+19     19 1.000000                                          Age
+20     20 2.584963                                      College
+21     21 3.584963                                College Major
+22     22 4.000000                            Moving to College
+23     23 3.700440                               Online Classes
+24     24 3.807355                              College Culture
+25     25 4.201841                       Semester Uncertainties
+26     26 3.875000                            College Struggles
+27     27 2.321928                                       Career
+28     28 3.773557                             Extracurriculars
+29     29 1.584963                                         Rats
+30     30 3.906891                             Traveling Abroad
+31     31 2.521641                                     Drinking
+32     32 4.000000                            Class Difficulty 
+33     33 3.807355                              College Classes
+34     34 3.906891                             Picking Colleges
+35     35 3.700440                               Medical School
+36     36 4.169925                          election to wrap-up
+37     37 4.321928                        introduction to puppy
+38     38 4.923182           puppy to age/introductions (again)
+39     39 2.584963                                      college
+40     40 4.392317                       to "wall street life"?
+41     41 4.247928                         back to covid school
+42     42 4.169925                          to looking for jobs
+43     43 4.563856                   to clubs/outside interests
+44     44 4.563856                   meeting friends in college
+45     45 3.807355                              studying abroad
+46     46 5.249460  freshmen dorms/college attitude to drinking
+47     47 5.333241 difficult of admission to/classes in college
+48     48 3.640224                             career interests
+49     49 4.169925                          sister's med school
+50     50 2.584963                                      wrap-up
+51     51 3.000000                                    goodbyes 
+52     52 3.000000                                    greetings
+53     53 4.169925                          introductions/names
+54     54 3.836592                          where they are from
+55     55 1.000000                                          dog
+56     56 3.169925                                   covid/jobs
+57     57 4.142664                         school classes/clubs
+58     58 3.000000                                    gap years
+59     59 4.087463                           school difficulty 
+60     60 3.321928                                  grad school
+61     61 2.807355                                     goodbyes</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>entropy3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   String  Entropy                             labels
+1       1 2.000000                              intro
+2       2 3.169925                         what to do
+3       3 2.807355                           location
+4       4 2.000000                              covid
+5       5 2.584963                            college
+6       6 3.277613                       mental state
+7       7 2.584963                            hobbies
+8       8 3.807355                    animal crossing
+9       9 4.247928               icebreaker questions
+10     10 3.000000                          ice cream
+11     11 2.321928                             travel
+12     12 2.584963                            fashion
+13     13 2.000000                              music
+14     14 1.584963                               food
+15     15 2.807355                           politics
+16     16 0.000000                                 tv
+17     17 2.000000                              drink
+18     18 3.000000                          fast food
+19     19 3.169925                         vegetarian
+20     20 1.584963                               pets
+21     21 3.773557                   morning vs night
+22     22 2.000000                              outro
+23     23 4.142664               Closing Conversation
+24     24 1.584963                               Name
+25     25 3.875000                  List of Questions
+26     26 3.906891                   Living Situation
+27     27 3.321928                        COVID Cases
+28     28 3.700440                     College Majors
+29     29 3.418296                      Mental Health
+30     30 2.584963                            Hobbies
+31     31 3.321928                        Video Games
+32     32 3.000000                          Ice Cream
+33     33 3.000000                          Traveling
+34     34 2.584963                            Fashion
+35     35 2.000000                              Music
+36     36 1.584963                               Food
+37     37 3.807355                    Political Views
+38     38 2.807355                           TV Shows
+39     39 3.000000                          Beverages
+40     40 3.000000                          Taco Bell
+41     41 1.584963                               Pets
+42     42 3.546594                     Sleep Schedule
+43     43 2.584963                            wrap-up
+44     44 4.789015     introductions to COVID impact 
+45     45 4.087463                 occupation/college
+46     46 4.584963          specific - summer classes
+47     47 4.423252      view of self because of COVID
+48     48 3.321928                        video games
+49     49 3.906891                   ice cream flavor
+50     50 3.321928                        music taste
+51     51 3.418296                      ariana grande
+52     52 4.498940 personal politics vs area politics
+53     53 2.807355                           tv shows
+54     54 3.875000                  drink preferences
+55     55 4.210765 vegetarian vs vegan vs pescatarian
+56     56 2.321928                             debate
+57     57 4.584963          back to hobbies (general)
+58     58 4.469670        morning or night preference
+59     59 3.321928                        wrapping up
+60     60 2.807355                           goodbyes
+61     61 3.584963                      introductions
+62     62 4.825164   task assigned/how to start convo
+63     63 3.836592                where they are from
+64     64 3.321928                        covid cases
+65     65 4.169925                occupations/college
+66     66 2.584963                            boredom
+67     67 2.000000                              games
+68     68 2.584963                            smoking
+69     69 3.584963                      back to games
+70     70 3.584963                      new questions
+71     71 3.584963                      style/fashion
+72     72 3.700440                     coffee and tea
+73     73 4.321928              taco bell menu/diets 
+74     74 4.169925                tournaments/debates
+75     75 3.321928                        wiffle ball
+76     76 3.459432                       sleep habits
+77     77 3.000000                          goodbyes </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># try string clustering (using hierarchical clustering; exports a dendrogram to help suggest number of clusters)</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">StrHclust</span>(labels1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="topic-boundaries_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Cluster                                                  Strings
+1        1                                              zoom issues
+2        1                                                    Names
+3        1                                                    rules
+4        1                                 questions abt quarantine
+5        1                                   questions abt lab work
+6        1                                                med schho
+7        1                                       price of education
+8        1                                        networking/online
+9        1                                                 location
+10       1                                           national parks
+11       1                                                    covid
+12       1                                                volunteer
+13       1                                                takeaway 
+14       1                                     trying to transition
+15       1                                                   dating
+16       1                                                    money
+17       1                                       conversation study
+18       1                                           studies/racism
+19       1                               liberals vs conservatives 
+20       1                                                 election
+21       1                                                  time up
+22       1                                                    recap
+23       1                                         Building Rapport
+24       1                                                Education
+25       1                                            Online Impact
+26       1                                                 Location
+27       1                                                   Travel
+28       1                                   Exploring Volunteering
+29       1                                               Statistics
+30       1                                                 Research
+31       1                                   Demand Characteristics
+32       1                                         Social Injustice
+33       1                                      Cultural Competence
+34       1                                         Racial Injustice
+35       1                                                   Family
+36       1                                       Political Research
+37       1                                       Political Election
+38       1                                     Closing Conversation
+39       1            Going from figuring out zoom to introductions
+40       1                   Introductions to quarantine happenings
+41       1                           University related to location
+42       1                    Location/background to national parks
+43       1                                 national parks to travel
+44       1                                   travel to volunteering
+45       1                                    volunteer to research
+46       1                   research to survey site they are using
+47       1                    surveys to university studies (again)
+48       2 university to medical disarities (kind of similar topic)
+49       1                      medical disparities to BLM protests
+50       1                                   BLM protests to racism
+51       1                                       racism to election
+52       1                                      election to wrap-up
+53       1                                          getting started
+54       1                                        work/volunteering
+55       1                                        networking online
+56       1                                                   travel
+57       1                                             volunteering
+58       1                                                 research
+59       1                                                  classes
+60       1                                                   racism
+61       1                                      politics and family
+62       1                                                goodbyes </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">StrHclust</span>(labels2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="topic-boundaries_files/figure-html/unnamed-chunk-6-2.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Cluster                                      Strings
+1        1                                 introduction
+2        1                                         name
+3        1                                    location 
+4        1                                        puppy
+5        1                                          age
+6        1                                       school
+7        1                                   internship
+8        1                                   greek life
+9        1                              post-graduation
+10       1                             extracurriculars
+11       1                                 study abroad
+12       1                                      alcohol
+13       1                                    medschool
+14       1                                        outro
+15       1                         Closing Conversation
+16       1                             Building Rapport
+17       1                                     Location
+18       1                                         Dogs
+19       1                                          Age
+20       1                                      College
+21       1                                College Major
+22       1                            Moving to College
+23       1                               Online Classes
+24       1                              College Culture
+25       1                       Semester Uncertainties
+26       1                            College Struggles
+27       1                                       Career
+28       1                             Extracurriculars
+29       1                                         Rats
+30       1                             Traveling Abroad
+31       1                                     Drinking
+32       1                            Class Difficulty 
+33       1                              College Classes
+34       1                             Picking Colleges
+35       1                               Medical School
+36       1                          election to wrap-up
+37       1                        introduction to puppy
+38       1           puppy to age/introductions (again)
+39       1                                      college
+40       1                       to "wall street life"?
+41       1                         back to covid school
+42       1                          to looking for jobs
+43       1                   to clubs/outside interests
+44       1                   meeting friends in college
+45       1                              studying abroad
+46       2  freshmen dorms/college attitude to drinking
+47       2 difficult of admission to/classes in college
+48       1                             career interests
+49       1                          sister's med school
+50       1                                      wrap-up
+51       1                                    goodbyes 
+52       1                                    greetings
+53       1                          introductions/names
+54       1                          where they are from
+55       1                                          dog
+56       1                                   covid/jobs
+57       1                         school classes/clubs
+58       1                                    gap years
+59       1                           school difficulty 
+60       1                                  grad school
+61       1                                     goodbyes</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">StrHclust</span>(labels3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="topic-boundaries_files/figure-html/unnamed-chunk-6-3.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Cluster                            Strings
+1        1                              intro
+2        1                         what to do
+3        1                           location
+4        1                              covid
+5        1                            college
+6        1                       mental state
+7        1                            hobbies
+8        1                    animal crossing
+9        1               icebreaker questions
+10       1                          ice cream
+11       1                             travel
+12       1                            fashion
+13       1                              music
+14       1                               food
+15       1                           politics
+16       1                                 tv
+17       1                              drink
+18       1                          fast food
+19       1                         vegetarian
+20       1                               pets
+21       1                   morning vs night
+22       1                              outro
+23       1               Closing Conversation
+24       1                               Name
+25       1                  List of Questions
+26       1                   Living Situation
+27       1                        COVID Cases
+28       1                     College Majors
+29       1                      Mental Health
+30       1                            Hobbies
+31       1                        Video Games
+32       1                          Ice Cream
+33       1                          Traveling
+34       1                            Fashion
+35       1                              Music
+36       1                               Food
+37       1                    Political Views
+38       1                           TV Shows
+39       1                          Beverages
+40       1                          Taco Bell
+41       1                               Pets
+42       1                     Sleep Schedule
+43       1                            wrap-up
+44       2     introductions to COVID impact 
+45       1                 occupation/college
+46       2          specific - summer classes
+47       2      view of self because of COVID
+48       1                        video games
+49       1                   ice cream flavor
+50       1                        music taste
+51       1                      ariana grande
+52       2 personal politics vs area politics
+53       1                           tv shows
+54       1                  drink preferences
+55       2 vegetarian vs vegan vs pescatarian
+56       1                             debate
+57       1          back to hobbies (general)
+58       1        morning or night preference
+59       1                        wrapping up
+60       1                           goodbyes
+61       1                      introductions
+62       2   task assigned/how to start convo
+63       1                where they are from
+64       1                        covid cases
+65       1                occupations/college
+66       1                            boredom
+67       1                              games
+68       1                            smoking
+69       1                      back to games
+70       1                      new questions
+71       1                      style/fashion
+72       1                     coffee and tea
+73       1              taco bell menu/diets 
+74       1                tournaments/debates
+75       1                        wiffle ball
+76       1                       sleep habits
+77       1                          goodbyes </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># k-means clustering</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="co"># try range of 1-4 clusters (are general themes across coder labels present?)</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="co"># convo 1</span></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>) {</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">StrKclust</span>(labels1, <span class="at">nclust =</span> i)</span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="topic-boundaries_files/figure-html/unnamed-chunk-6-4.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="topic-boundaries_files/figure-html/unnamed-chunk-6-5.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="topic-boundaries_files/figure-html/unnamed-chunk-6-6.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="topic-boundaries_files/figure-html/unnamed-chunk-6-7.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># convo 2</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>) {</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">StrKclust</span>(labels2, <span class="at">nclust =</span> i)</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="topic-boundaries_files/figure-html/unnamed-chunk-6-8.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="topic-boundaries_files/figure-html/unnamed-chunk-6-9.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="topic-boundaries_files/figure-html/unnamed-chunk-6-10.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="topic-boundaries_files/figure-html/unnamed-chunk-6-11.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># convo 3</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>) {</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">StrKclust</span>(labels3, <span class="at">nclust =</span> i)</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="topic-boundaries_files/figure-html/unnamed-chunk-6-12.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="topic-boundaries_files/figure-html/unnamed-chunk-6-13.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="topic-boundaries_files/figure-html/unnamed-chunk-6-14.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="topic-boundaries_files/figure-html/unnamed-chunk-6-15.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># more qualitative text analysis using tidytext package</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="co"># loop through for each conversation</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>) {</span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># select current labels</span></span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (i <span class="sc">==</span> <span class="dv">1</span>) {</span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>    current.label <span class="ot">&lt;-</span> labels1</span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (i <span class="sc">==</span> <span class="dv">2</span>) {</span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a>    current.label <span class="ot">&lt;-</span> labels2</span>
+<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (i <span class="sc">==</span> <span class="dv">3</span>) {</span>
+<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a>    current.label <span class="ot">&lt;-</span> labels3</span>
+<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># tokenize labels for each conversation</span></span>
+<span id="cb41-14"><a href="#cb41-14" aria-hidden="true" tabindex="-1"></a>  df.labels <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">text =</span> current.label)</span>
+<span id="cb41-15"><a href="#cb41-15" aria-hidden="true" tabindex="-1"></a>  label.tokens <span class="ot">&lt;-</span> df.labels <span class="sc">|&gt;</span></span>
+<span id="cb41-16"><a href="#cb41-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest_tokens</span>(<span class="at">output =</span> word,</span>
+<span id="cb41-17"><a href="#cb41-17" aria-hidden="true" tabindex="-1"></a>                <span class="at">input =</span> text)</span>
+<span id="cb41-18"><a href="#cb41-18" aria-hidden="true" tabindex="-1"></a>  <span class="co"># get unique tokens</span></span>
+<span id="cb41-19"><a href="#cb41-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unique</span>(label.tokens<span class="sc">$</span>word)</span>
+<span id="cb41-20"><a href="#cb41-20" aria-hidden="true" tabindex="-1"></a>  <span class="co"># remove some tokens</span></span>
+<span id="cb41-21"><a href="#cb41-21" aria-hidden="true" tabindex="-1"></a>  label.tokens <span class="ot">&lt;-</span> <span class="fu">subset</span>(label.tokens, label.tokens<span class="sc">$</span>word <span class="sc">!=</span> <span class="st">"of"</span> <span class="sc">&amp;</span> </span>
+<span id="cb41-22"><a href="#cb41-22" aria-hidden="true" tabindex="-1"></a>                 label.tokens<span class="sc">$</span>word <span class="sc">!=</span> <span class="st">"to"</span> <span class="sc">&amp;</span></span>
+<span id="cb41-23"><a href="#cb41-23" aria-hidden="true" tabindex="-1"></a>                 label.tokens<span class="sc">$</span>word <span class="sc">!=</span> <span class="st">"vs"</span> <span class="sc">&amp;</span></span>
+<span id="cb41-24"><a href="#cb41-24" aria-hidden="true" tabindex="-1"></a>                 label.tokens<span class="sc">$</span>word <span class="sc">!=</span> <span class="st">"are"</span>)</span>
+<span id="cb41-25"><a href="#cb41-25" aria-hidden="true" tabindex="-1"></a>  <span class="co"># plot</span></span>
+<span id="cb41-26"><a href="#cb41-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(label.tokens <span class="sc">|&gt;</span></span>
+<span id="cb41-27"><a href="#cb41-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(word) <span class="sc">|&gt;</span></span>
+<span id="cb41-28"><a href="#cb41-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">subset</span>(n <span class="sc">&gt;=</span> <span class="dv">2</span>) <span class="sc">|&gt;</span> <span class="co"># remove instances of 1</span></span>
+<span id="cb41-29"><a href="#cb41-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> word, <span class="at">y =</span> n, <span class="at">fill =</span> n <span class="sc">&gt;</span> <span class="dv">2</span>)) <span class="sc">+</span></span>
+<span id="cb41-30"><a href="#cb41-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb41-31"><a href="#cb41-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"lightblue"</span>,<span class="st">"orange"</span>)) <span class="sc">+</span></span>
+<span id="cb41-32"><a href="#cb41-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"lightblue"</span>, <span class="st">"orange"</span>)) <span class="sc">+</span></span>
+<span id="cb41-33"><a href="#cb41-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Tokenized topic count across coders"</span>,</span>
+<span id="cb41-34"><a href="#cb41-34" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="fu">paste0</span>(<span class="st">"Conversation #"</span>, <span class="fu">as.character</span>(i), <span class="at">sep =</span> <span class="st">""</span>)) <span class="sc">+</span></span>
+<span id="cb41-35"><a href="#cb41-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb41-36"><a href="#cb41-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">vjust =</span> <span class="dv">1</span>, <span class="at">hjust =</span> <span class="dv">1</span>),</span>
+<span id="cb41-37"><a href="#cb41-37" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">"none"</span>))</span>
+<span id="cb41-38"><a href="#cb41-38" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="topic-boundaries_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="topic-boundaries_files/figure-html/unnamed-chunk-7-2.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="topic-boundaries_files/figure-html/unnamed-chunk-7-3.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="boundary-locations" class="level2">
+<h2 class="anchored" data-anchor-id="boundary-locations">Boundary locations</h2>
+<p>Where do topic change points occur, according to human annotators?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># area peaks; y axis value = number of coders that agreed that turn was topic change</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df, <span class="fu">aes</span>(<span class="at">x =</span> turn_id, <span class="at">y =</span> topic_change, <span class="at">fill =</span> coder)) <span class="sc">+</span></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>conversation, <span class="at">ncol =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_area</span>() <span class="sc">+</span></span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="st">"Turn ID"</span>, <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">375</span>),</span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>                     <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">50</span>,<span class="dv">100</span>,<span class="dv">150</span>,<span class="dv">200</span>,<span class="dv">250</span>,<span class="dv">300</span>,<span class="dv">350</span>,<span class="dv">400</span>)) <span class="sc">+</span></span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Topic change point agreement across coders"</span>,</span>
+<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Peak refers to number of coders that agreed turn was topic change"</span>,</span>
+<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Topic Change Point"</span>) <span class="sc">+</span></span>
+<span id="cb42-10"><a href="#cb42-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="topic-boundaries_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df, <span class="fu">aes</span>(<span class="at">x =</span> turn_id, <span class="at">y =</span> topic_change, <span class="at">color =</span> coder)) <span class="sc">+</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>conversation, <span class="at">ncol =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">data =</span> df.change, </span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>             <span class="fu">aes</span>(<span class="at">xintercept =</span> turn_id,</span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">color =</span> coder)) <span class="sc">+</span></span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="st">"Turn ID"</span>, <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">375</span>),</span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a>                     <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">50</span>,<span class="dv">100</span>,<span class="dv">150</span>,<span class="dv">200</span>,<span class="dv">250</span>,<span class="dv">300</span>,<span class="dv">350</span>,<span class="dv">400</span>)) <span class="sc">+</span></span>
+<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Topic change point agreement across coders"</span>,</span>
+<span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Line refers to topic change point across conversation"</span>,</span>
+<span id="cb43-10"><a href="#cb43-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Line color refers to agreement between coders (i.e., blue = 3, purple = all)"</span>,</span>
+<span id="cb43-11"><a href="#cb43-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb43-12"><a href="#cb43-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="topic-boundaries_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="topic-length" class="level2">
+<h2 class="anchored" data-anchor-id="topic-length">Topic length</h2>
+<p>How long do conversation partners spend on each topic?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df, <span class="fu">aes</span>(<span class="at">x =</span> turn_id, <span class="at">y =</span> topic_change, <span class="at">color =</span> topic_label)) <span class="sc">+</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(conversation<span class="sc">~</span>coder) <span class="sc">+</span></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept =</span> turn_id, <span class="at">color =</span> topic_label)) <span class="sc">+</span></span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="st">"Turn ID"</span>, <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">375</span>)) <span class="sc">+</span></span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Time spent in each topic"</span>,</span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Color refers to topic, grid row refers to conversation number, grid column refers to coder"</span>,</span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="topic-boundaries_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<section id="high-agreement-example" class="level4">
+<h4 class="anchored" data-anchor-id="high-agreement-example">“High agreement” example</h4>
+<p>Conversation 3, turn_id = 118. Every coder agreed this was a topic change, and upon further investigation, all coders identified the new topic with a consistent label.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># example turn id = 118</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> <span class="fu">subset</span>(df, turn_id <span class="sc">==</span> <span class="dv">118</span> <span class="sc">&amp;</span> conversation <span class="sc">==</span> <span class="st">"3"</span>)</span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>test.labels <span class="ot">&lt;-</span> test<span class="sc">$</span>topic_label</span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>test.labels</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "travel"    "Traveling" "travel"    "travel"   </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># example theme: travel</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> <span class="fu">subset</span>(df, conversation <span class="sc">==</span> <span class="st">"3"</span>)</span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> <span class="fu">subset</span>(test, topic_label <span class="sc">%in%</span> test.labels)</span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> test) <span class="sc">+</span> </span>
+<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_textdensity</span>(<span class="fu">aes</span>(<span class="at">x =</span> turn_id, <span class="at">group =</span> coder, <span class="at">color =</span> coder,</span>
+<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a>                        <span class="at">label =</span> topic_label), <span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">vjust =</span> <span class="fl">0.3</span>, <span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb47-9"><a href="#cb47-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb47-10"><a href="#cb47-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="st">"Turn ID"</span>, <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">375</span>),</span>
+<span id="cb47-11"><a href="#cb47-11" aria-hidden="true" tabindex="-1"></a>                     <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">50</span>,<span class="dv">100</span>,<span class="dv">150</span>,<span class="dv">200</span>,<span class="dv">250</span>,<span class="dv">300</span>,<span class="dv">350</span>,<span class="dv">400</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="topic-boundaries_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="low-agreement-example" class="level4">
+<h4 class="anchored" data-anchor-id="low-agreement-example">“Low agreement” example</h4>
+<p>Conversation 1, turn_id = 175, a lot of disagreement about topic changes across coders. Peaks don’t overlap and upon further investigation, topics don’t match up either.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># example turn id = 175</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> <span class="fu">subset</span>(df, turn_id <span class="sc">==</span> <span class="dv">175</span> <span class="sc">&amp;</span> conversation <span class="sc">==</span> <span class="st">"1"</span>)</span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>test.labels <span class="ot">&lt;-</span> test<span class="sc">$</span>topic_label</span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>test.labels</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "studies/racism"                                          
+[2] "Social Injustice"                                        
+[3] "university to medical disarities (kind of similar topic)"
+[4] "classes"                                                 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># example theme: social injustice</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> <span class="fu">subset</span>(df, conversation <span class="sc">==</span> <span class="st">"1"</span>)</span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> <span class="fu">subset</span>(test, topic_label <span class="sc">%in%</span> test.labels)</span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> test) <span class="sc">+</span> </span>
+<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_textdensity</span>(<span class="fu">aes</span>(<span class="at">x =</span> turn_id, <span class="at">group =</span> coder, <span class="at">color =</span> coder,</span>
+<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a>                        <span class="at">label =</span> topic_label), <span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">vjust =</span> <span class="fl">0.3</span>, <span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb50-10"><a href="#cb50-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="st">"Turn ID"</span>, <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">375</span>),</span>
+<span id="cb50-11"><a href="#cb50-11" aria-hidden="true" tabindex="-1"></a>                     <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">50</span>,<span class="dv">100</span>,<span class="dv">150</span>,<span class="dv">200</span>,<span class="dv">250</span>,<span class="dv">300</span>,<span class="dv">350</span>,<span class="dv">400</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="topic-boundaries_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+</section>
+<section id="speakers-and-topic-changes" class="level2">
+<h2 class="anchored" data-anchor-id="speakers-and-topic-changes">Speakers and topic changes</h2>
+<p>Are certain speakers driving topic changes?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df, <span class="fu">aes</span>(<span class="at">x =</span> turn_id, <span class="at">y =</span> topic_change, <span class="at">color =</span> speaker)) <span class="sc">+</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(conversation<span class="sc">~</span>coder) <span class="sc">+</span></span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">data =</span> df.change,</span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>             <span class="fu">aes</span>(<span class="at">xintercept =</span> turn_id, <span class="at">color =</span> speaker)) <span class="sc">+</span></span>
+<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="st">"Turn ID"</span>, <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">375</span>)) <span class="sc">+</span></span>
+<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Topic change point by speaker"</span>,</span>
+<span id="cb51-7"><a href="#cb51-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Vertical line indicates change point, grid row = conversation number, grid column = coder"</span>,</span>
+<span id="cb51-8"><a href="#cb51-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb51-9"><a href="#cb51-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb51-10"><a href="#cb51-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="topic-boundaries_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="takeaways" class="level2">
+<h2 class="anchored" data-anchor-id="takeaways">Takeaways</h2>
+<ol type="1">
+<li>Topic change point labels should identify the start of a new topic (e.g., “travel”), not mark a transition from one topic to another (e.g., “volunteering to travel”).</li>
+<li>One to two word topics are probably the best to be able to identify broader themes within and across conversations.</li>
+<li>Multiple levels of granularity for topics? Broader themes + distinct topic change points?</li>
+<li></li>
+</ol>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
